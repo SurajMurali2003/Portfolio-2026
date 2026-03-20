@@ -10,7 +10,7 @@ import {
   FaInstagram,
   FaSnapchatGhost,
   FaTiktok,
-  FaCircle
+  FaCircle,
 } from "react-icons/fa";
 import { socialprofils } from "../../content_option";
 
@@ -24,7 +24,7 @@ const ICON_MAPPING = {
   tiktok: FaTiktok,
   twitter: FaTwitter,
   twitch: FaTwitch,
-  youtube: FaYoutube
+  youtube: FaYoutube,
 };
 
 export const Socialicons = (params) => {
@@ -42,7 +42,7 @@ export const Socialicons = (params) => {
           );
         })}
       </ul>
-      <p>Follow Me</p>
+      <p>Socially View Me</p>
     </div>
   );
 };
