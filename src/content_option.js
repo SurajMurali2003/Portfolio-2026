@@ -1,67 +1,65 @@
-import myImage from './assets/images/BC1A05852.JPG';
-
-const logotext = 'JOHN';
+const logotext = 'SurajMurali*';
 const meta = {
-  title: 'John Doe',
+  title: 'Suraj Murali',
   description:
     'I’m John Doe data scientist _ Full stack devloper,currently working in Berlin',
 };
 
 const introdata = {
-  title: 'I’m John Doe',
+  title: 'I’m Suraj Murali',
   animated: {
-    first: 'I love coding',
+    first: 'I love communicating with Computer',
     second: 'I code cool websites',
-    third: 'I develop mobile apps',
+    third: 'I develop Concepts into Software',
   },
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum',
-  your_img_url: myImage,
+  your_img_url: 'https://images.unsplash.com/photo-1514790193030-c89d266d5a9d',
 };
 
 const dataabout = {
-  title: 'abit about my self',
+  title: 'Hi Im Suraj Murali',
   aboutme:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis dolor id ligula semper elementum feugiat pretium nulla. Nunc non commodo dolor. Nunc mollis dignissim facilisis. Morbi ut magna ultricies.',
 };
 const worktimeline = [
   {
-    jobtitle: 'Designer of week',
-    where: 'YAdfi',
-    date: '2020',
+    jobtitle: 'Intern',
+    where: 'TechData',
+    date: '2024-Mar',
   },
   {
-    jobtitle: 'Designer of week',
-    where: 'Jamalya',
-    date: '2019',
+    jobtitle: 'Software Trainee',
+    where: 'Avasoft',
+    date: '2024-Sep',
   },
   {
-    jobtitle: 'Designer of week',
-    where: 'ALquds',
-    date: '2019',
+    jobtitle: 'FullStack Developer',
+    where: 'Intech Systems',
+    date: '2025-Feb',
   },
 ];
 
 const skills = [
   {
-    name: 'Python',
+    name: 'Javascript',
     value: 90,
   },
   {
-    name: 'Djano',
+    name: 'React',
+    value: 90,
+  },
+  {
+    name: 'Type-Script',
     value: 85,
   },
   {
-    name: 'Javascript',
+    name: 'Node-Js',
     value: 80,
   },
   {
-    name: 'React',
-    value: 60,
-  },
-  {
-    name: 'Jquery',
-    value: 85,
+    name: 'Mongo-DB',
+    value: 70,
   },
 ];
 
@@ -160,8 +158,8 @@ const dataportfolio = [
 ];
 
 const contactConfig = {
-  YOUR_EMAIL: 'name@domain.com',
-  YOUR_FONE: '(555)123-4567',
+  YOUR_EMAIL: 'surajmuralisri@gmail.com',
+  YOUR_FONE: '9342216329',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula eu nunc et sollicitudin. Cras pulvinar, nisi at imperdiet pharetra. ',
   // creat an emailjs.com account
@@ -172,9 +170,9 @@ const contactConfig = {
 };
 
 const socialprofils = {
-  github: 'https://github.com',
+  github: 'https://github.com/SurajMurali2003',
   facebook: 'https://facebook.com',
-  linkedin: 'https://linkedin.com',
+  linkedin: 'https://www.linkedin.com/in/suraj-murali-sri',
   twitter: 'https://twitter.com',
 };
 export {
