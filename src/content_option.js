@@ -1,19 +1,22 @@
+import wildOasisPic from "./assets/images/Wild-oasis-pic.png";
+
 const logotext = "SurajMurali*";
 const meta = {
   title: "Suraj Murali",
   description:
-    "I’m John Doe data scientist _ Full stack devloper,currently working in Berlin",
+    "I’m Suraj Murali Full-Stack devloper, Inspired /~\nd Experienced on developing Business concepts into software-products",
 };
 
 const introdata = {
   title: "I’m Suraj Murali",
   animated: {
-    first: "I love communicating with Computer",
+    first: "I love communicating with Computers",
     second: "I code cool websites",
-    third: "I develop Concepts into Software",
+    third: "I develop concepts as Product",
   },
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum",
+    "I’m Suraj Murali Full-Stack devloper, Inspired & Experienced on developing Business concepts into software-products",
+
   your_img_url: "https://images.unsplash.com/photo-1514790193030-c89d266d5a9d",
 };
 
@@ -83,10 +86,10 @@ const services = [
 
 const dataportfolio = [
   {
-    img: "https://picsum.photos/400/?grayscale",
+    img: wildOasisPic,
     description:
       "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
+    link: "https://wild-oasis-pi-topaz.vercel.app",
   },
   {
     img: "https://picsum.photos/400/800/?grayscale",
@@ -161,7 +164,7 @@ const contactConfig = {
   YOUR_EMAIL: "surajmuralisri@gmail.com",
   YOUR_FONE: "9342216329",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula eu nunc et sollicitudin. Cras pulvinar, nisi at imperdiet pharetra. ",
+    "“Have an opportunity or idea? I’d love to collaborate and bring it to life.”",
   // creat an emailjs.com account
   // check out this tutorial https://www.emailjs.com/docs/examples/reactjs/
   YOUR_SERVICE_ID: "service_id",
