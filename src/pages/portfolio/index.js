@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
-import { dataportfolio, meta } from "../../content_option";
+import { ReactProjects, VanillaProjects, meta } from "../../content_option";
 
 export const Portfolio = () => {
+  const [isReactProjects, setisReactProjects] = useState(true);
+  console.log("isReactProjects", isReactProjects);
+
+  const curretProjects = isReactProjects ? ReactProjects : VanillaProjects;
+
+  function hanldeChangeProject(project) {
+    if (project === "react" && isReactProjects) return;
+    if (project === "vanila" && !isReactProjects) return;
+    setisReactProjects((prev) => !prev);
+  }
+
   return (
     <HelmetProvider>
       <Container className="About-header">
@@ -19,14 +30,29 @@ export const Portfolio = () => {
             <hr className="t_border my-4 ml-0 text-left" />
           </Col>
         </Row>
+
+        <div className="Project-Btns">
+          <button
+            className={isReactProjects && "currentProjectBtn"}
+            onClick={() => hanldeChangeProject("react")}
+          >
+            React
+          </button>
+          <button
+            className={!isReactProjects && "currentProjectBtn"}
+            onClick={() => hanldeChangeProject("vanila")}
+          >
+            Vanilla
+          </button>
+        </div>
         <div className="mb-5 po_items_ho">
-          {dataportfolio.map((data, i) => {
+          {curretProjects?.map((data, i) => {
             return (
               <div key={i} className="po_item">
-                <img src={data.img} alt="" />
+                <img src={data.img} alt={`Project${i + 1}`} />
                 <div className="content">
                   <p>{data.description}</p>
-                  <a href={data.link}>view project</a>
+                  <a href={data.link}>Explore</a>
                 </div>
               </div>
             );

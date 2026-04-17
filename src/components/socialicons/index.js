@@ -42,7 +42,7 @@ export const Socialicons = (params) => {
           );
         })}
       </ul>
-      <p>Socially View Me</p>
+      <p className="social-media-text">Social Medai Me</p>
     </div>
   );
 };
