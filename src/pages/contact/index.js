@@ -19,15 +19,17 @@ export const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormdata({ loading: true });
+    setFormdata((prev) => ({ ...prev, loading: true }));
 
     const templateParams = {
-      from_name: formData.email,
+      from_name: formData.name,        // sender's name
       user_name: formData.name,
       to_name: contactConfig.YOUR_EMAIL,
       message: formData.message,
+      reply_to: formData.email,        // sender's email
     };
 
+    // Email 1 — notifies YOU that someone contacted you
     emailjs
       .send(
         contactConfig.YOUR_SERVICE_ID,
@@ -35,26 +37,38 @@ export const ContactUs = () => {
         templateParams,
         contactConfig.YOUR_USER_ID
       )
-      .then(
-        (result) => {
-          console.log(result.text);
-          setFormdata({
-            loading: false,
-            alertmessage: "SUCCESS! ,Thankyou for your messege",
-            variant: "success",
-            show: true,
-          });
-        },
-        (error) => {
-          console.log(error.text);
-          setFormdata({
-            alertmessage: `Faild to send!,${error.text}`,
-            variant: "danger",
-            show: true,
-          });
-          document.getElementsByClassName("co_alert")[0].scrollIntoView();
-        }
-      );
+      .then(() => {
+        // Email 2 — auto-reply thank you to the person who contacted you
+        emailjs.send(
+          contactConfig.YOUR_SERVICE_ID,
+          contactConfig.YOUR_AUTOREPLY_TEMPLATE_ID,
+          templateParams,
+          contactConfig.YOUR_USER_ID
+        );
+
+        setFormdata({
+          email: "",
+          name: "",
+          message: "",
+          loading: false,
+          alertmessage: "SUCCESS! Thank you for your message, I'll get back to you soon!",
+          variant: "success",
+          show: true,
+        });
+      })
+      .catch((error) => {
+        console.log(error.text);
+        setFormdata({
+          email: "",
+          name: "",
+          message: "",
+          loading: false,
+          alertmessage: `Failed to send! ${error.text}`,
+          variant: "danger",
+          show: true,
+        });
+        document.getElementsByClassName("co_alert")[0].scrollIntoView();
+      });
   };
 
   const handleChange = (e) => {
@@ -81,12 +95,11 @@ export const ContactUs = () => {
         <Row className="sec_sp">
           <Col lg="12">
             <Alert
-              //show={formData.show}
               variant={formData.variant}
               className={`rounded-0 co_alert ${
                 formData.show ? "d-block" : "d-none"
               }`}
-              onClose={() => setFormdata({ show: false })}
+              onClose={() => setFormdata((prev) => ({ ...prev, show: false }))}
               dismissible
             >
               <p className="my-0">{formData.alertmessage}</p>

@@ -51,8 +51,22 @@ export const Portfolio = () => {
               <div key={i} className="po_item">
                 <img src={data.img} alt={`Project${i + 1}`} />
                 <div className="content">
-                  <p>{data.description}</p>
-                  <a href={data.link}>Explore</a>
+                  <div className="projectName">
+                    <h1>{data?.projectName} </h1>
+                  </div>
+                  <div className="po_item_heading">
+                    <h5>TeckStack </h5>
+                    <p>{data?.teckStack} </p>
+                  </div>
+
+                  <div className="po_item_description">
+                    <h5>Overview</h5>
+                    <p>{data.description}</p>
+                  </div>
+
+                  <a href={data.link} target="_blank" rel="noreferrer noopener">
+                    Explore
+                  </a>
                 </div>
               </div>
             );

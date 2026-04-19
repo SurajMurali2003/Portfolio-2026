@@ -1,22 +1,11 @@
-/* .po_items_ho {
-  column-width: 85em;
-  -moz-column-width: 15em;
-  -webkit-column-width: 15em;
-  column-gap: 4rem;
-  -moz-column-gap: 4rem;
-  -webkit-column-gap: 4rem;
-} */
-
 .po_items_ho {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .po_item {
-  display: inline-block;
   width: 100%;
-  text-align: center;
   margin: 0.5rem auto;
   position: relative;
   background: var(--secondary-color);
@@ -24,75 +13,202 @@
   border: 1px solid var(--secondary-color);
   transition: 0.3s ease;
   font-size: 0;
-  min-height: 300px;
+  overflow: hidden;
+  display: block;
 }
 
 .po_item img {
-  max-width: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
 }
 
+/* ── DESKTOP: hover overlay ── */
 .po_item .content {
   position: absolute;
-  height: 0;
-  width: 0;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: var(--overlay-color);
+  background: rgba(0, 0, 0, 0.88);
   z-index: 1;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  transition: 0.3s ease-in-out;
+  align-items: stretch;
+  justify-content: center;
+  gap: 18px;
+  border-radius: 10px;
+  height: 0;
+  width: 0;
+  overflow: hidden;
   opacity: 0;
-  border: 1px solid black;
+  padding: 0;
+  transition:
+    opacity 0.3s ease,
+    height 0.3s ease,
+    width 0.3s ease,
+    padding 0.3s ease;
 }
 
-.po_item .content {
-  opacity: 0;
-  transition-delay: 1s;
-  transition: 0.3s ease;
-  font-size: 40px;
+@media (min-width: 769px) {
+  .po_item:hover .content {
+    height: auto;
+    width: 92%;
+    opacity: 1;
+    padding: 16px;
+    overflow-y: auto;
+  }
+
+  .po_item:hover {
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* ── Project name ── */
+.projectName {
+  text-align: center;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 8px;
+}
+
+.projectName h1 {
+  color: #ff4d4d;
+  font-style: italic;
   font-weight: 800;
+  font-size: clamp(14px, 3vw, 22px);
+  margin: 0;
+  line-height: 1.3;
 }
 
-.po_item:hover {
-  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.25);
+/* ── TechStack ── */
+.po_item_heading {
+  text-align: left;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 8px;
 }
 
-.po_item:hover .content {
-  height: calc(100% - 30px);
-  width: calc(100% - 30px);
-  opacity: 1;
+.po_item h5 {
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin: 0 0 4px 0;
 }
 
-.po_item:hover .content {
-  opacity: 1;
-  color: var(--secondary-color);
+.po_item_heading p {
+  font-size: clamp(10px, 1.8vw, 13px);
+  font-weight: 400;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+  line-height: 1.5;
 }
 
+/* ── Overview ── */
+.po_item_description {
+  text-align: left;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 8px;
+}
+
+.po_item_description p {
+  font-size: clamp(10px, 1.8vw, 13px);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ── Explore button — desktop ── */
 .po_item .content a {
-  display: inline-block;
-  padding: 12px 24px;
-  font-size: 18px;
-  font-weight: 600;
-  color: white;
+  all: unset;
+  display: block !important;
+  width: fit-content;
+  margin: 4px auto 0 auto;
+  padding: 10px 28px;
+  font-size: 13px !important;
+  font-weight: 500;
+  color: white !important;
   background: #ff4d4d;
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.3s ease;
-  border: none;
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .po_item .content a:hover {
-  box-shadow:
-    0 0 10px #ff4d4d,
-    0 0 20px #ff4d4d;
+  background: #e03e3e;
 }
 
+/* ── MOBILE: static layout, no hover needed ── */
+@media (hover: none), (max-width: 768px) {
+  .po_item {
+    font-size: initial;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .po_item img {
+    height: 180px;
+  }
+
+  .po_item .content {
+    all: unset;
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.88);
+    padding: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    opacity: 1;
+    position: static;
+    height: auto;
+    overflow: visible;
+    border-radius: 0;
+  }
+
+  .projectName h1 {
+    font-size: 18px;
+  }
+
+  .po_item_heading p,
+  .po_item_description p {
+    font-size: 13px;
+  }
+
+  /* ── Explore button — mobile ── */
+  .po_item .content a {
+    all: unset;
+    display: block !important;
+    width: fit-content;
+    margin: 8px auto 0 auto;
+    padding: 12px 32px;
+    font-size: 14px !important;
+    font-weight: 600;
+    color: white !important;
+    background: #ff4d4d;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .po_item .content a:active {
+    background: #cc3333;
+    transform: scale(0.97);
+  }
+}
+
+/* ── Project toggle buttons ── */
 .Project-Btns {
   background: #1e1e1e;
   padding: 6px;
@@ -101,29 +217,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0 auto 40px auto;
+  margin: 0 auto 40px auto;
   width: fit-content;
-  margin: 0 auto;
 }
 
 .Project-Btns button {
   border: none;
   outline: none;
-  color: black;
+  color: white;
   font-size: 16px;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 8px 24px;
   white-space: nowrap;
+  background: transparent;
 }
 
 .currentProjectBtn {
-  background: red;
+  background: red !important;
   color: white;
 }
 
-a {
+/* ── Global anchor — scoped away from portfolio cards ── */
+a:not(.po_item a) {
   color: red;
   font-size: 20px;
 }
