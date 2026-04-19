@@ -7,7 +7,7 @@ import ReactQuizPic from "./assets/images/React-quiz.png";
 import ClassyWeatherPic from "./assets/images/Classy-Weather.png";
 import BankistPic from "./assets/images/Bankist.png";
 import MaptyPic from "./assets/images/Mapty.png";
-import MyPic from "./assets/images/My-Pic.JPG";
+import MyPic from "./assets/images/My-Pic2.JPG";
 
 const logotext = "SurajMurali*";
 
