@@ -63,10 +63,15 @@ export const Portfolio = () => {
                     <h5>Overview</h5>
                     <p>{data.description}</p>
                   </div>
-
-                  <a href={data.link} target="_blank" rel="noreferrer noopener">
-                    Explore
-                  </a>
+                  {data.link && (
+                    <a
+                      href={data.link}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      Explore
+                    </a>
+                  )}
                 </div>
               </div>
             );

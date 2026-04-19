@@ -121,7 +121,7 @@ const ReactProjects = [
       "Custom Hooks, Context API + useReducer, Leaflet API, React Router",
     description:
       "A React application enabling users to mark and log their Vacations around the world",
-    link: "",
+    link: false,
   },
 
   {
